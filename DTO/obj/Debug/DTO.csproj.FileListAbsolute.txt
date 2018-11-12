@@ -10,3 +10,8 @@ C:\Users\ASUS\Desktop\New folder (2)\Quan-Ly-Tra-Sua\bin\Debug\DTO.pdb
 C:\Users\ASUS\Desktop\New folder (2)\Quan-Ly-Tra-Sua\DTO\obj\Debug\DTO.csprojResolveAssemblyReference.cache
 C:\Users\ASUS\Desktop\New folder (2)\Quan-Ly-Tra-Sua\DTO\obj\Debug\DTO.dll
 C:\Users\ASUS\Desktop\New folder (2)\Quan-Ly-Tra-Sua\DTO\obj\Debug\DTO.pdb
+C:\Users\ASUS\Desktop\baiminh\Quan-Ly-Tra-Sua\bin\Debug\DTO.dll
+C:\Users\ASUS\Desktop\baiminh\Quan-Ly-Tra-Sua\bin\Debug\DTO.pdb
+C:\Users\ASUS\Desktop\baiminh\Quan-Ly-Tra-Sua\DTO\obj\Debug\DTO.csprojResolveAssemblyReference.cache
+C:\Users\ASUS\Desktop\baiminh\Quan-Ly-Tra-Sua\DTO\obj\Debug\DTO.dll
+C:\Users\ASUS\Desktop\baiminh\Quan-Ly-Tra-Sua\DTO\obj\Debug\DTO.pdb

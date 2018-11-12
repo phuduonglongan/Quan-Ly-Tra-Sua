@@ -65,6 +65,54 @@ namespace DAO
                 disconnect();
             }
         }
+        public void UpdateYesterday(string userName)
+        {
+            connect();
+            string sql = "Update Account SET Yesterday = " + DateTime.Today.AddDays(-1).ToString() + " WHERE UserName = '" + userName + "'";
+            try
+            {
+                RunSQL(sql);
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                disconnect();
+            }
+        }
+        public void UpdateInfo(string username, string pass, string displayName)
+        {
+            connect();
+            string sql = "UPDATE Account SET PassWord = '" + pass + "', DisplayName = N'" + displayName + "' WHERE UserName = '" + username + "'";
+            try
+            {
+                RunSQL(sql);
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                disconnect();
+            }
+        }
+
+        public void DeleteAccount(string username)
+        {
+            connect();
+            string sql = "DELETE Account WHERE UserName = '" + username + "'";
+            try
+            {
+                RunSQL(sql);
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
 
