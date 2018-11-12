@@ -188,11 +188,12 @@
             // 
             // TxtEdit
             // 
-            this.TxtEdit.Location = new System.Drawing.Point(511, 39);
+            this.TxtEdit.Location = new System.Drawing.Point(230, 25);
             this.TxtEdit.Name = "TxtEdit";
             this.TxtEdit.Size = new System.Drawing.Size(100, 22);
             this.TxtEdit.TabIndex = 1;
             this.TxtEdit.Visible = false;
+            this.TxtEdit.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TxtEdit_KeyUp_1);
             // 
             // lvBill
             // 
@@ -208,6 +209,8 @@
             this.lvBill.TabIndex = 0;
             this.lvBill.UseCompatibleStateImageBehavior = false;
             this.lvBill.View = System.Windows.Forms.View.Details;
+            this.lvBill.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lvBill_MouseDown_1);
+            this.lvBill.MouseUp += new System.Windows.Forms.MouseEventHandler(this.lvBill_MouseUp);
             // 
             // columnHeader1
             // 
@@ -217,12 +220,12 @@
             // columnHeader2
             // 
             this.columnHeader2.Text = "Giá";
-            this.columnHeader2.Width = 118;
+            this.columnHeader2.Width = 106;
             // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "Số lượng";
-            this.columnHeader3.Width = 83;
+            this.columnHeader3.Width = 119;
             // 
             // columnHeader4
             // 
@@ -267,6 +270,7 @@
             this.btPay.TabIndex = 0;
             this.btPay.Text = "Thanh Toán";
             this.btPay.UseVisualStyleBackColor = true;
+            this.btPay.Click += new System.EventHandler(this.btPay_Click);
             // 
             // panel6
             // 

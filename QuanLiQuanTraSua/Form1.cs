@@ -124,18 +124,6 @@ namespace QuanLiQuanTraSua
         ListViewItem.ListViewSubItem Count;
         ListViewItem.ListViewSubItem Price;
         ListViewItem.ListViewSubItem Sum;
-        private void lvBill_MouseDown(object sender, MouseEventArgs e)
-        {
-            HideTextEditor();
-        }
-        private void TxtEdit_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Return)
-            {
-                HideTextEditor();
-                TinhTien();
-            }
-        }
         private void HideTextEditor()
         {
             TxtEdit.Visible = false;
@@ -147,6 +135,79 @@ namespace QuanLiQuanTraSua
             Count = null;
             TxtEdit.Text = "";
         }
+        private void TinhTien()
+        {
+            double total = 0;
+            foreach (ListViewItem item in lvBill.Items)
+            {
+                total += Convert.ToInt32(item.SubItems[3].Text);
+            }
+            txtTotal.Text = total.ToString();
+        }
+
+        private void btPay_Click(object sender, EventArgs e)
+        {
+            foreach (Button item in panelDrinks.Controls)
+            {
+                if (!item.Enabled)
+                {
+                    item.Enabled = true;
+                }
+            }
+            foreach (Button item in panelTopping.Controls)
+            {
+                if (!item.Enabled)
+                {
+                    item.Enabled = true;
+                }
+            }
+            new AccountBUS().UpdateCountDay(LocalData.localData.AccountUserName, Convert.ToInt32(txtTotal.Text));
+            new AccountBUS().UpdateCountMonth(LocalData.localData.AccountUserName, Convert.ToInt32(txtTotal.Text));
+            XuatFile();
+            lvBill.Clear();
+        }
+        private void XuatFile()
+        {
+            String fileName = DateTime.Now.Day.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Year.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString();
+            String filePath = "D:\\" + fileName + ".txt";
+            FileStream fs = new FileStream(filePath, FileMode.Create);
+            StreamWriter sWriter = new StreamWriter(fs, Encoding.UTF8);
+            sWriter.WriteLine("HÓA ĐƠN TÍNH TIỀN");
+            sWriter.WriteLine("------------------------------------------------------------------------------------");
+            StringBuilder sb;
+            foreach (ListViewItem lvi in lvBill.Items)
+            {
+                sb = new StringBuilder();
+
+                sb.Append(string.Format("{0,-40} {1, -11} {2, -30} {3}", lvi.SubItems[0].Text, lvi.SubItems[1].Text, lvi.SubItems[2].Text, lvi.SubItems[3].Text));
+
+                sWriter.WriteLine(sb.ToString());
+            }
+            sWriter.WriteLine("------------------------------------------------------------------------------------");
+            sWriter.WriteLine("Thành tiền:\t" + txtTotal.Text);
+            sWriter.Flush();
+            fs.Close();
+            fs = new FileStream(filePath, FileMode.Open);
+            StreamReader rd = new StreamReader(fs, Encoding.UTF8);
+            String data = rd.ReadToEnd();
+            rd.Close();
+            MessageBox.Show(data, "HÓA ĐƠN TÍNH TIỀN");
+        }
+
+        private void TxtEdit_KeyUp_1(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Return)
+            {
+                HideTextEditor();
+                TinhTien();
+            }
+        }
+
+        private void lvBill_MouseDown_1(object sender, MouseEventArgs e)
+        {
+            HideTextEditor();
+        }
+
         private void lvBill_MouseUp(object sender, MouseEventArgs e)
         {
             ListViewItem ItemSelected = lvBill.GetItemAt(e.X, e.Y);
@@ -161,39 +222,6 @@ namespace QuanLiQuanTraSua
             TxtEdit.Select();
             TxtEdit.SelectAll();
         }
-        private void TinhTien()
-        {
-            double total = 0;
-            foreach (ListViewItem item in lvBill.Items)
-            {
-                total += Convert.ToInt32(item.SubItems[3].Text);
-            }
-            txtTotal.Text = total.ToString();
-        }
-
-       
-        /*    private void btPay_Click(object sender, EventArgs e)
-    {
-        foreach (Button item in panelDrinks.Controls)
-        {
-            if (!item.Enabled)
-            {
-                item.Enabled = true;
-            }
-        }
-        foreach (Button item in panelTopping.Controls)
-        {
-            if (!item.Enabled)
-            {
-                item.Enabled = true;
-            }
-        }
-        new AccountBUS().UpdateCountDay(LocalData.localData.AccountUserName, Convert.ToInt32(txtTotal.Text));
-        new AccountBUS().UpdateCountMonth(LocalData.localData.AccountUserName, Convert.ToInt32(txtTotal.Text));
-        XuatFile();
-        lvBill.Clear();
-    }*/
-
     }
 }
 
