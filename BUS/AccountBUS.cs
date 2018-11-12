@@ -58,5 +58,28 @@ namespace BUS
                 throw ex;
             }
         }
+        public void UpdateInfo(string userName, string password, string displayName)
+        {
+            try
+            {
+                new AccountDAO().UpdateInfo(userName, password, displayName);
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
+
+        public void DeleteAccount(string userName)
+        {
+            try
+            {
+                new AccountDAO().DeleteAccount(userName);
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
