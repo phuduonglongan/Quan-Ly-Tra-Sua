@@ -113,6 +113,40 @@ namespace DAO
                 throw ex;
             }
         }
+        public void UpdateCountDay(string userName, int count, int total)
+        {
+            connect();
+            string sql = "UPDATE Account SET CountDay = " + count + ", TotalDay = " + total + " WHERE UserName = '" + userName + "'";
+            try
+            {
+                RunSQL(sql);
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                disconnect();
+            }
+        }
+        public void UpdateCountMonth(string userName, int count, int total)
+        {
+            connect();
+            string sql = "UPDATE Account SET CountMonth = " + count + ", TotalMonth = " + total + " WHERE UserName = '" + userName + "'";
+            try
+            {
+                RunSQL(sql);
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                disconnect();
+            }
+        }
     }
 }
 

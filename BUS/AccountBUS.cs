@@ -81,5 +81,66 @@ namespace BUS
                 throw ex;
             }
         }
+        public void UpdateCountDay(string userName, int totalDay)
+        {
+            try
+            {
+                Account a = GetAccount().Where(p => p.UserName == userName).FirstOrDefault();
+                if (a == null)
+                {
+                    return;
+                }
+                else
+                {
+                    if (a.Yesterday == null || a.Yesterday != DateTime.Today.AddDays(-1))
+                    {
+                        new AccountDAO().UpdateYesterday(userName);
+                        new AccountDAO().UpdateCountDay(userName, 1, totalDay);
+                    }
+                    else
+                    {
+                        new AccountDAO().UpdateCountDay(userName, a.CountDay + 1, a.TotalDay + totalDay);
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
+        public void UpdateCountMonth(string userName, int totalMonth)
+        {
+            try
+            {
+                Account a = GetAccount().Where(p => p.UserName == userName).FirstOrDefault();
+                if (a == null)
+                {
+                    return;
+                }
+                else
+                {
+                    int countMonth = 0, total = 0;
+                    if (a.Yesterday == null || a.Yesterday != DateTime.Today.AddDays(-1))
+                    {
+                        new AccountDAO().UpdateYesterday(userName);
+                    }
+                    if (a.Yesterday == (new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1).AddDays(-1)))
+                    {
+                        countMonth = 1;
+                        total = totalMonth;
+                    }
+                    else
+                    {
+                        countMonth = a.CountMonth + 1;
+                        total = a.TotalMonth + totalMonth;
+                    }
+                    new AccountDAO().UpdateCountMonth(userName, countMonth, total);
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
