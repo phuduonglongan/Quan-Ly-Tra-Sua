@@ -41,6 +41,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.Edit = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Delete = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panelFormInfoAccount.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvInfoAccount)).BeginInit();
@@ -72,12 +74,16 @@
             // dtgvInfoAccount
             // 
             this.dtgvInfoAccount.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgvInfoAccount.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Edit,
+            this.Delete});
             this.dtgvInfoAccount.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtgvInfoAccount.Location = new System.Drawing.Point(0, 0);
             this.dtgvInfoAccount.Name = "dtgvInfoAccount";
             this.dtgvInfoAccount.RowTemplate.Height = 24;
             this.dtgvInfoAccount.Size = new System.Drawing.Size(761, 403);
             this.dtgvInfoAccount.TabIndex = 0;
+            this.dtgvInfoAccount.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgvInfoAccount_CellContentClick);
             // 
             // panel2
             // 
@@ -188,6 +194,18 @@
             this.label1.Text = "Thông Tin Tài Khoản";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // Edit
+            // 
+            this.Edit.HeaderText = "Edit";
+            this.Edit.Name = "Edit";
+            this.Edit.Width = 50;
+            // 
+            // Delete
+            // 
+            this.Delete.HeaderText = "Delete";
+            this.Delete.Name = "Delete";
+            this.Delete.Width = 50;
+            // 
             // FormInfoAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -225,5 +243,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridViewButtonColumn Edit;
+        private System.Windows.Forms.DataGridViewButtonColumn Delete;
     }
 }
