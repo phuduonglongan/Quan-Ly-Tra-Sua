@@ -18,7 +18,43 @@ namespace BUS
             }
             catch (SqlException ex)
             {
+                throw ex;
+            }
+        }
+        public void AddNewAccount(string UserName, string Password, string DisplayName)
+        {
+            try
+            {
+                if (GetAccount().Where(a => a.UserName == UserName).FirstOrDefault() != null)
+                {
+                    throw new Exception("Tên tài khoản đã tồn tại !!!");
+                }
+                new AccountDAO().AddNewAccount(GetNextIDForAccount(), UserName, Password, DisplayName, 0, 0, DateTime.Today.AddDays(-1));
+            }
+            catch (SqlException ex)
+            {
 
+                throw ex;
+            }
+        }
+
+        public string GetNextIDForAccount()// lấy mã nhân viên mới ra
+        {
+            try
+            {
+                string kq = "";
+                if (GetAccount().OrderByDescending(p => p.Id).ToList().FirstOrDefault() == null)
+                    kq = "NV1";
+                else
+                {
+                    List<Account> list = GetAccount().OrderByDescending(p => p.Id).ToList();
+                    int count = Convert.ToInt32(list.First().Id.Replace("NV", "")) + 1;
+                    kq = "NV" + count;
+                }
+                return kq;
+            }
+            catch (SqlException ex)
+            {
                 throw ex;
             }
         }

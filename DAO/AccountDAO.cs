@@ -16,19 +16,23 @@ namespace DAO
             connect();
             try
             {
-                SqlDataReader dr = mysqlDataReader(sql);
+                SqlDataReader dr = ExecuteReader(sql);
                 string id, username, password, displayname;
-                int countday, countmonth;
+                int countday, countmonth, totalDay, totalMonth;
+                DateTime yesterday;
                 List<Account> list = new List<Account>();
-                while(dr.Read())
+                while (dr.Read())
                 {
-                    id= dr[0].ToString();
+                    id = dr[0].ToString();
                     username = dr[1].ToString();
                     password = dr[2].ToString();
                     displayname = dr[3].ToString();
                     countday = Convert.ToInt16(dr[4]);
                     countmonth = Convert.ToInt16(dr[5]);
-                    Account account = new Account(id, username, password, displayname, countday, countmonth);
+                    yesterday = dr[6] != DBNull.Value ? Convert.ToDateTime(dr[6]) : DateTime.Today.AddDays(-1);
+                    totalDay = Convert.ToInt32(dr[7]);
+                    totalMonth = Convert.ToInt32(dr[8]);
+                    Account account = new Account(id, username, password, displayname, countday, countmonth, yesterday, totalDay, totalMonth);
                     list.Add(account);
                 }
                 dr.Close();
@@ -44,5 +48,23 @@ namespace DAO
                 disconnect();
             }
         }
-      }
+        public void AddNewAccount(string ID, string UserName, string Password, string DisplayName, int CountDay, int CountMonth, DateTime yesterday)
+        {
+            connect();
+            string sql = "INSERT INTO Account(id, UserName, PassWord, DisplayName, CountDay, CountMonth, Yesterday) VALUES ('" + ID + "', '" + UserName + "', '" + Password + "', N'" + DisplayName + "', " + CountDay + "," + CountMonth + ", '" + yesterday.ToString() + "')";
+            try
+            {
+                RunSQL(sql);
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                disconnect();
+            }
+        }
+    }
 }
+

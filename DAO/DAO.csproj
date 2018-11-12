@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="AccountDAO.cs" />
     <Compile Include="DataProvider.cs" />
+    <Compile Include="DrinkDAO.cs" />
     <Compile Include="LoginDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
