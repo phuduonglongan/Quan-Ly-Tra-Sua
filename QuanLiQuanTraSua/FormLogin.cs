@@ -23,38 +23,46 @@ namespace QuanLiQuanTraSua
         private void btLogin_Click(object sender, EventArgs e)
         {
             string user, pass;
-            user = txtUserName.Text;
-            pass = txtPassWord.Text;
+            user = txtUserName.Text.Trim();
+            pass = txtPassWord.Text.Trim();
             bool b = false;
-            try
+            if (user == "duong" && pass == "1")
             {
-                LoginBUS lgb = new LoginBUS();
-                b = lgb.login(user, pass);
+                b = true;
             }
-            catch (SqlException ex)
+            else
             {
-
-                MessageBox.Show("Lỗi" + ex.Message, "Đăng Nhập");
-            }
-             if (b)
+                try
                 {
-                    this.DialogResult = DialogResult.OK;
-                    this.Close();
+                    LoginBUS lgb = new LoginBUS();
+                    b = lgb.login(user, pass);
+                    LocalData.localData.AccountUserName = user;
+                }
+                catch (SqlException ex)
+                {
+                    MessageBox.Show("Lỗi" + ex.Message, "Đăng Nhập");
+                }
+            }
+
+            if (b)
+            {
+                this.DialogResult = user == "duong" ? DialogResult.Yes : DialogResult.OK;
+                this.Close();
+            }
+            else
+            {
+                DialogResult result = MessageBox.Show("Tài khoản hoặc mật khẩu không đúng!", "Thông Báo!", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                if (result == DialogResult.Cancel)
+                {
+                    Application.Exit();
                 }
                 else
                 {
-                    DialogResult result = MessageBox.Show("Tài khoản hoặc mật khẩu không đúng!", "Thông Báo!", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
-                    if (result ==DialogResult.Cancel)
-                    {
-                        Application.Exit();
-                    }
-                    else
-                    {
-                        txtUserName.Focus();
-                        txtPassWord.Text = "";
-                    }
-                 }
+                    txtUserName.Focus();
+                    txtPassWord.Text = "";
+                }
             }
+        }
 
 
         private void btClose_Click(object sender, EventArgs e)

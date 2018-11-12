@@ -33,12 +33,20 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
+            this.zzz = new System.Windows.Forms.TabControl();
+            this.panelDrinks = new System.Windows.Forms.TabPage();
+            this.panelTopping = new System.Windows.Forms.TabPage();
             this.dtgvMenu = new System.Windows.Forms.DataGridView();
             this.panel5 = new System.Windows.Forms.Panel();
             this.lbShopName = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.TxtEdit = new System.Windows.Forms.TextBox();
             this.lvBill = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel7 = new System.Windows.Forms.Panel();
             this.txtTotal = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -52,13 +60,10 @@
             this.infoAccountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel9.SuspendLayout();
+            this.zzz.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgvMenu)).BeginInit();
             this.panel5.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -92,12 +97,41 @@
             // 
             // panel9
             // 
+            this.panel9.Controls.Add(this.zzz);
             this.panel9.Controls.Add(this.dtgvMenu);
             this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel9.Location = new System.Drawing.Point(0, 77);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(882, 581);
             this.panel9.TabIndex = 1;
+            // 
+            // zzz
+            // 
+            this.zzz.Controls.Add(this.panelDrinks);
+            this.zzz.Controls.Add(this.panelTopping);
+            this.zzz.Location = new System.Drawing.Point(0, 0);
+            this.zzz.Name = "zzz";
+            this.zzz.SelectedIndex = 0;
+            this.zzz.Size = new System.Drawing.Size(882, 578);
+            this.zzz.TabIndex = 1;
+            // 
+            // panelDrinks
+            // 
+            this.panelDrinks.Location = new System.Drawing.Point(4, 25);
+            this.panelDrinks.Name = "panelDrinks";
+            this.panelDrinks.Size = new System.Drawing.Size(874, 549);
+            this.panelDrinks.TabIndex = 0;
+            this.panelDrinks.Text = "Drink";
+            this.panelDrinks.UseVisualStyleBackColor = true;
+            // 
+            // panelTopping
+            // 
+            this.panelTopping.Location = new System.Drawing.Point(4, 25);
+            this.panelTopping.Name = "panelTopping";
+            this.panelTopping.Size = new System.Drawing.Size(874, 549);
+            this.panelTopping.TabIndex = 1;
+            this.panelTopping.Text = "Topping";
+            this.panelTopping.UseVisualStyleBackColor = true;
             // 
             // dtgvMenu
             // 
@@ -144,12 +178,21 @@
             // 
             // panel8
             // 
+            this.panel8.Controls.Add(this.TxtEdit);
             this.panel8.Controls.Add(this.lvBill);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel8.Location = new System.Drawing.Point(0, 77);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(639, 481);
             this.panel8.TabIndex = 2;
+            // 
+            // TxtEdit
+            // 
+            this.TxtEdit.Location = new System.Drawing.Point(511, 39);
+            this.TxtEdit.Name = "TxtEdit";
+            this.TxtEdit.Size = new System.Drawing.Size(100, 22);
+            this.TxtEdit.TabIndex = 1;
+            this.TxtEdit.Visible = false;
             // 
             // lvBill
             // 
@@ -165,6 +208,26 @@
             this.lvBill.TabIndex = 0;
             this.lvBill.UseCompatibleStateImageBehavior = false;
             this.lvBill.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Tên món";
+            this.columnHeader1.Width = 116;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Giá";
+            this.columnHeader2.Width = 118;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Số lượng";
+            this.columnHeader3.Width = 83;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Tổng";
+            this.columnHeader4.Width = 171;
             // 
             // panel7
             // 
@@ -261,6 +324,7 @@
             this.adminToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.infoAccountToolStripMenuItem,
             this.reportToolStripMenuItem});
+            this.adminToolStripMenuItem.Enabled = false;
             this.adminToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.adminToolStripMenuItem.Name = "adminToolStripMenuItem";
             this.adminToolStripMenuItem.Size = new System.Drawing.Size(72, 55);
@@ -285,26 +349,6 @@
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "Tên món";
-            this.columnHeader1.Width = 116;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Giá";
-            this.columnHeader2.Width = 122;
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "Số lượng";
-            this.columnHeader3.Width = 83;
-            // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Text = "Tổng";
-            this.columnHeader4.Width = 171;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -321,10 +365,12 @@
             this.panel1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel9.ResumeLayout(false);
+            this.zzz.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgvMenu)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
             this.panel6.ResumeLayout(false);
@@ -364,5 +410,9 @@
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.TabControl zzz;
+        private System.Windows.Forms.TabPage panelDrinks;
+        private System.Windows.Forms.TabPage panelTopping;
+        private System.Windows.Forms.TextBox TxtEdit;
     }
 }

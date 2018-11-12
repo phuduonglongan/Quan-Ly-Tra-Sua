@@ -59,8 +59,9 @@ namespace QuanLiQuanTraSua
             }
         }
 
-        private void dtgvInfoAccount_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void dtgvInfoAccount_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+
             if (e.ColumnIndex == dtgvInfoAccount.Columns["Edit"].Index && e.RowIndex >= 0)
             {
                 try
