@@ -12,7 +12,7 @@ namespace DAO
         SqlConnection cn;
         public DataProvider()
         {
-            string cnstr = "Server= . ; Database = QuanLiQuanTraSua; Integrated Security = true;";
+            string cnstr = "Server= . ; Database = QuanLiQuanTraSua1; Integrated Security = true;";
             cn = new SqlConnection(cnstr);
         }
         public void connect()
@@ -69,20 +69,46 @@ namespace DAO
                 disconnect();
             }
         }
-        public SqlDataReader mysqlDataReader (string sql)
+        public SqlDataReader ExecuteReader(string sql) //dùng để đọc dữ liệu từ câu truy vấn
         {
-            SqlCommand cmd = new SqlCommand(sql, cn);
-            cmd.CommandType = CommandType.Text;
-            connect();
             try
             {
-                return (cmd.ExecuteReader());
+                SqlCommand cmd = new SqlCommand(sql, cn);
+                return cmd.ExecuteReader();
+            }
+            catch (InvalidCastException ex)
+            {
+                throw ex;
+            }
+            catch (InvalidOperationException ex)
+            {
+                throw ex;
             }
             catch (SqlException ex)
             {
-
                 throw ex;
             }
         }
+        public void RunSQL(string sql)
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand(sql, cn);
+                cmd.ExecuteNonQuery();
+            }
+            catch (InvalidCastException ex)
+            {
+                throw ex;
+            }
+            catch (InvalidOperationException ex)
+            {
+                throw ex;
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }//end of Add
+
     }
 }
