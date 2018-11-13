@@ -15,15 +15,14 @@ namespace QuanLiQuanTraSua
 {
     public partial class FormInfoAccount : Form
     {
+
         public FormInfoAccount()
         {
             InitializeComponent();
-            
         }
         private void FormInfoAccount_Load(object sender, EventArgs e)
         {
-            List<Account> list = new AccountBUS().GetAccount();
-            dtgvInfoAccount.DataSource = list; 
+            LoadDgv();
         }
 
         private void btAddAccount_Click(object sender, EventArgs e)
@@ -45,13 +44,12 @@ namespace QuanLiQuanTraSua
                     MessageBox.Show(ex.Message, "Lỗi");
                 }
             }
-
         }
         public void LoadDgv()
         {
             try
             {
-                dtgvInfoAccount.DataSource = new AccountBUS().GetAccount();
+                dtgvInfoAccount.DataSource = new AccountBUS().GetAllAccount();
             }
             catch (SqlException ex)
             {
@@ -59,9 +57,8 @@ namespace QuanLiQuanTraSua
             }
         }
 
-        private void dtgvInfoAccount_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dtgvInfoAccount_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-
             if (e.ColumnIndex == dtgvInfoAccount.Columns["Edit"].Index && e.RowIndex >= 0)
             {
                 try
@@ -92,5 +89,6 @@ namespace QuanLiQuanTraSua
             }
         }
 
+ 
     }
 }

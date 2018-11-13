@@ -31,7 +31,7 @@ namespace DTO
             this.UserName = username;
             this.PassWord = password;
             this.DisplayName = displayname;
-            this.CountDay = countday;
+            this.CountDay =countday;
             this.CountMonth = countmonth;
             this.Yesterday = yesterday;
             this.TotalMonth = totalMonth;

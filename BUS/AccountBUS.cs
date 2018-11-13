@@ -10,11 +10,11 @@ namespace BUS
 {
     public class AccountBUS
     {
-        public List<Account> GetAccount()
+        public List<Account> GetAllAccount()
         {
             try
             {
-                return new AccountDAO().GetAccount();
+                return new AccountDAO().GetAllAccount();
             }
             catch (SqlException ex)
             {
@@ -25,7 +25,7 @@ namespace BUS
         {
             try
             {
-                if (GetAccount().Where(a => a.UserName == UserName).FirstOrDefault() != null)
+                if(GetAllAccount().Where(a => a.UserName == UserName).FirstOrDefault() != null)
                 {
                     throw new Exception("Tên tài khoản đã tồn tại !!!");
                 }
@@ -43,11 +43,11 @@ namespace BUS
             try
             {
                 string kq = "";
-                if (GetAccount().OrderByDescending(p => p.Id).ToList().FirstOrDefault() == null)
+                if (GetAllAccount().OrderByDescending(p => p.Id).ToList().FirstOrDefault() == null)
                     kq = "NV1";
                 else
                 {
-                    List<Account> list = GetAccount().OrderByDescending(p => p.Id).ToList();
+                    List<Account> list = GetAllAccount().OrderByDescending(p => p.Id).ToList();
                     int count = Convert.ToInt32(list.First().Id.Replace("NV", "")) + 1;
                     kq = "NV" + count;
                 }
@@ -58,34 +58,12 @@ namespace BUS
                 throw ex;
             }
         }
-        public void UpdateInfo(string userName, string password, string displayName)
-        {
-            try
-            {
-                new AccountDAO().UpdateInfo(userName, password, displayName);
-            }
-            catch (SqlException ex)
-            {
-                throw ex;
-            }
-        }
 
-        public void DeleteAccount(string userName)
-        {
-            try
-            {
-                new AccountDAO().DeleteAccount(userName);
-            }
-            catch (SqlException ex)
-            {
-                throw ex;
-            }
-        }
         public void UpdateCountDay(string userName, int totalDay)
         {
             try
             {
-                Account a = GetAccount().Where(p => p.UserName == userName).FirstOrDefault();
+                Account a = GetAllAccount().Where(p => p.UserName == userName).FirstOrDefault();
                 if (a == null)
                 {
                     return;
@@ -112,7 +90,7 @@ namespace BUS
         {
             try
             {
-                Account a = GetAccount().Where(p => p.UserName == userName).FirstOrDefault();
+                Account a = GetAllAccount().Where(p => p.UserName == userName).FirstOrDefault();
                 if (a == null)
                 {
                     return;
@@ -136,6 +114,30 @@ namespace BUS
                     }
                     new AccountDAO().UpdateCountMonth(userName, countMonth, total);
                 }
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
+
+        public void UpdateInfo(string userName, string password, string displayName)
+        {
+            try
+            {
+                new AccountDAO().UpdateInfo(userName, password, displayName);
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
+
+        public void DeleteAccount(string userName)
+        {
+            try
+            {
+                new AccountDAO().DeleteAccount(userName);
             }
             catch (SqlException ex)
             {

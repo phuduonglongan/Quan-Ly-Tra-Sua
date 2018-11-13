@@ -18,8 +18,7 @@ namespace QuanLiQuanTraSua
         {
             InitializeComponent();
         }
-  
-
+        
         private void btLogin_Click(object sender, EventArgs e)
         {
             string user, pass;
@@ -69,16 +68,16 @@ namespace QuanLiQuanTraSua
         {
             FormLogin fg = new FormLogin();
             DialogResult result = MessageBox.Show("Bạn muốn thoát khỏi chương trình ?", "Thông Báo !", MessageBoxButtons.YesNo);
-                if(result==DialogResult.Yes)
-                  {
-                     Application.Exit();
-                  }
-                else
-                 {
-                     fg.ShowDialog();
-                 }
+            if (result == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+            else
+            {
+                fg.ShowDialog();
+            }
         }
     }
-    }
+}
 
 

@@ -32,11 +32,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.zzz = new System.Windows.Forms.TabControl();
-            this.panelDrinks = new System.Windows.Forms.TabPage();
-            this.panelTopping = new System.Windows.Forms.TabPage();
-            this.dtgvMenu = new System.Windows.Forms.DataGridView();
+            this.panel_drink_topping = new System.Windows.Forms.Panel();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.panelDrinks = new System.Windows.Forms.Panel();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.panelTopping = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.lbShopName = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -62,9 +63,10 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
-            this.panel9.SuspendLayout();
-            this.zzz.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvMenu)).BeginInit();
+            this.panel_drink_topping.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -81,75 +83,94 @@
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1521, 717);
+            this.panel1.Size = new System.Drawing.Size(1521, 718);
             this.panel1.TabIndex = 0;
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.panel9);
+            this.panel4.Controls.Add(this.panel_drink_topping);
             this.panel4.Controls.Add(this.panel5);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(0, 59);
+            this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(882, 658);
+            this.panel4.Size = new System.Drawing.Size(882, 659);
             this.panel4.TabIndex = 2;
             // 
-            // panel9
+            // panel_drink_topping
             // 
-            this.panel9.Controls.Add(this.zzz);
-            this.panel9.Controls.Add(this.dtgvMenu);
-            this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel9.Location = new System.Drawing.Point(0, 77);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(882, 581);
-            this.panel9.TabIndex = 1;
+            this.panel_drink_topping.Controls.Add(this.tabControl1);
+            this.panel_drink_topping.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_drink_topping.Location = new System.Drawing.Point(0, 78);
+            this.panel_drink_topping.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panel_drink_topping.Name = "panel_drink_topping";
+            this.panel_drink_topping.Size = new System.Drawing.Size(882, 581);
+            this.panel_drink_topping.TabIndex = 1;
             // 
-            // zzz
+            // tabControl1
             // 
-            this.zzz.Controls.Add(this.panelDrinks);
-            this.zzz.Controls.Add(this.panelTopping);
-            this.zzz.Location = new System.Drawing.Point(0, 0);
-            this.zzz.Name = "zzz";
-            this.zzz.SelectedIndex = 0;
-            this.zzz.Size = new System.Drawing.Size(882, 578);
-            this.zzz.TabIndex = 1;
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(882, 581);
+            this.tabControl1.TabIndex = 0;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.panelDrinks);
+            this.tabPage1.Location = new System.Drawing.Point(4, 25);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
+            this.tabPage1.Size = new System.Drawing.Size(874, 552);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Thức uống";
+            this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // panelDrinks
             // 
-            this.panelDrinks.Location = new System.Drawing.Point(4, 25);
+            this.panelDrinks.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelDrinks.Location = new System.Drawing.Point(4, 4);
+            this.panelDrinks.Margin = new System.Windows.Forms.Padding(4);
             this.panelDrinks.Name = "panelDrinks";
-            this.panelDrinks.Size = new System.Drawing.Size(874, 549);
+            this.panelDrinks.Size = new System.Drawing.Size(866, 544);
             this.panelDrinks.TabIndex = 0;
-            this.panelDrinks.Text = "Drink";
-            this.panelDrinks.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.panelTopping);
+            this.tabPage2.Location = new System.Drawing.Point(4, 25);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(4);
+            this.tabPage2.Size = new System.Drawing.Size(874, 552);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Topping";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // panelTopping
             // 
-            this.panelTopping.Location = new System.Drawing.Point(4, 25);
+            this.panelTopping.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelTopping.Location = new System.Drawing.Point(4, 4);
+            this.panelTopping.Margin = new System.Windows.Forms.Padding(4);
             this.panelTopping.Name = "panelTopping";
-            this.panelTopping.Size = new System.Drawing.Size(874, 549);
-            this.panelTopping.TabIndex = 1;
-            this.panelTopping.Text = "Topping";
-            this.panelTopping.UseVisualStyleBackColor = true;
-            // 
-            // dtgvMenu
-            // 
-            this.dtgvMenu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgvMenu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dtgvMenu.Location = new System.Drawing.Point(0, 0);
-            this.dtgvMenu.Name = "dtgvMenu";
-            this.dtgvMenu.RowTemplate.Height = 24;
-            this.dtgvMenu.Size = new System.Drawing.Size(882, 581);
-            this.dtgvMenu.TabIndex = 0;
+            this.panelTopping.Size = new System.Drawing.Size(866, 544);
+            this.panelTopping.TabIndex = 0;
             // 
             // panel5
             // 
             this.panel5.Controls.Add(this.lbShopName);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel5.Location = new System.Drawing.Point(0, 0);
+            this.panel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(882, 77);
+            this.panel5.Size = new System.Drawing.Size(882, 78);
             this.panel5.TabIndex = 0;
             // 
             // lbShopName
@@ -160,7 +181,7 @@
             this.lbShopName.ForeColor = System.Drawing.Color.Purple;
             this.lbShopName.Location = new System.Drawing.Point(0, 0);
             this.lbShopName.Name = "lbShopName";
-            this.lbShopName.Size = new System.Drawing.Size(882, 77);
+            this.lbShopName.Size = new System.Drawing.Size(882, 78);
             this.lbShopName.TabIndex = 0;
             this.lbShopName.Text = "     Trà Sữa 3 Thành Viên     ";
             this.lbShopName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -172,8 +193,9 @@
             this.panel3.Controls.Add(this.panel6);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel3.Location = new System.Drawing.Point(882, 59);
+            this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(639, 658);
+            this.panel3.Size = new System.Drawing.Size(639, 659);
             this.panel3.TabIndex = 1;
             // 
             // panel8
@@ -181,19 +203,22 @@
             this.panel8.Controls.Add(this.TxtEdit);
             this.panel8.Controls.Add(this.lvBill);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel8.Location = new System.Drawing.Point(0, 77);
+            this.panel8.Location = new System.Drawing.Point(0, 78);
+            this.panel8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(639, 481);
             this.panel8.TabIndex = 2;
             // 
             // TxtEdit
             // 
-            this.TxtEdit.Location = new System.Drawing.Point(230, 25);
+            this.TxtEdit.Location = new System.Drawing.Point(477, 31);
+            this.TxtEdit.Margin = new System.Windows.Forms.Padding(4);
             this.TxtEdit.Name = "TxtEdit";
             this.TxtEdit.Size = new System.Drawing.Size(100, 22);
             this.TxtEdit.TabIndex = 1;
             this.TxtEdit.Visible = false;
-            this.TxtEdit.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TxtEdit_KeyUp_1);
+            this.TxtEdit.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TxtEdit_KeyUp);
+            this.TxtEdit.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lvBill_MouseDown);
             // 
             // lvBill
             // 
@@ -203,34 +228,36 @@
             this.columnHeader3,
             this.columnHeader4});
             this.lvBill.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lvBill.FullRowSelect = true;
             this.lvBill.Location = new System.Drawing.Point(0, 0);
+            this.lvBill.Margin = new System.Windows.Forms.Padding(4);
             this.lvBill.Name = "lvBill";
             this.lvBill.Size = new System.Drawing.Size(639, 481);
             this.lvBill.TabIndex = 0;
             this.lvBill.UseCompatibleStateImageBehavior = false;
             this.lvBill.View = System.Windows.Forms.View.Details;
-            this.lvBill.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lvBill_MouseDown_1);
+            this.lvBill.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lvBill_MouseDown);
             this.lvBill.MouseUp += new System.Windows.Forms.MouseEventHandler(this.lvBill_MouseUp);
             // 
             // columnHeader1
             // 
-            this.columnHeader1.Text = "Tên món";
-            this.columnHeader1.Width = 116;
+            this.columnHeader1.Text = "Tên Món";
+            this.columnHeader1.Width = 115;
             // 
             // columnHeader2
             // 
-            this.columnHeader2.Text = "Giá";
-            this.columnHeader2.Width = 106;
+            this.columnHeader2.Text = "Giá ";
+            this.columnHeader2.Width = 77;
             // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "Số lượng";
-            this.columnHeader3.Width = 119;
+            this.columnHeader3.Width = 84;
             // 
             // columnHeader4
             // 
             this.columnHeader4.Text = "Tổng";
-            this.columnHeader4.Width = 171;
+            this.columnHeader4.Width = 80;
             // 
             // panel7
             // 
@@ -238,7 +265,8 @@
             this.panel7.Controls.Add(this.label2);
             this.panel7.Controls.Add(this.btPay);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel7.Location = new System.Drawing.Point(0, 558);
+            this.panel7.Location = new System.Drawing.Point(0, 559);
+            this.panel7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(639, 100);
             this.panel7.TabIndex = 1;
@@ -246,9 +274,10 @@
             // txtTotal
             // 
             this.txtTotal.Location = new System.Drawing.Point(184, 42);
+            this.txtTotal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.ReadOnly = true;
-            this.txtTotal.Size = new System.Drawing.Size(206, 22);
+            this.txtTotal.Size = new System.Drawing.Size(207, 22);
             this.txtTotal.TabIndex = 2;
             // 
             // label2
@@ -265,6 +294,7 @@
             // 
             this.btPay.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btPay.Location = new System.Drawing.Point(461, 26);
+            this.btPay.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btPay.Name = "btPay";
             this.btPay.Size = new System.Drawing.Size(117, 48);
             this.btPay.TabIndex = 0;
@@ -277,8 +307,9 @@
             this.panel6.Controls.Add(this.label1);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel6.Location = new System.Drawing.Point(0, 0);
+            this.panel6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(639, 77);
+            this.panel6.Size = new System.Drawing.Size(639, 78);
             this.panel6.TabIndex = 0;
             // 
             // label1
@@ -288,7 +319,7 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(639, 77);
+            this.label1.Size = new System.Drawing.Size(639, 78);
             this.label1.TabIndex = 0;
             this.label1.Text = "Thông Tin Hóa Đơn";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -298,6 +329,7 @@
             this.panel2.Controls.Add(this.menuStrip1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1521, 59);
             this.panel2.TabIndex = 0;
@@ -311,6 +343,7 @@
             this.adminToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
             this.menuStrip1.Size = new System.Drawing.Size(1521, 59);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
@@ -357,20 +390,22 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1521, 717);
+            this.ClientSize = new System.Drawing.Size(1521, 718);
             this.ControlBox = false;
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TRÀ SỮA 3 THÀNH VIÊN";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
-            this.panel9.ResumeLayout(false);
-            this.zzz.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dtgvMenu)).EndInit();
+            this.panel_drink_topping.ResumeLayout(false);
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
@@ -390,15 +425,13 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.DataGridView dtgvMenu;
+        private System.Windows.Forms.Panel panel_drink_topping;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.ListView lvBill;
         private System.Windows.Forms.Button btPay;
         private System.Windows.Forms.Label lbShopName;
         private System.Windows.Forms.Label label1;
@@ -410,13 +443,16 @@
         private System.Windows.Forms.TextBox txtTotal;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.Panel panelDrinks;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.Panel panelTopping;
+        private System.Windows.Forms.ListView lvBill;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
-        private System.Windows.Forms.TabControl zzz;
-        private System.Windows.Forms.TabPage panelDrinks;
-        private System.Windows.Forms.TabPage panelTopping;
         private System.Windows.Forms.TextBox TxtEdit;
     }
 }

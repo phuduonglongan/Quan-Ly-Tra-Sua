@@ -3,19 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DAO;
 using System.Data.SqlClient;
 using DTO;
-using DAO;
 
 namespace BUS
 {
-    public class DrinkBUS
+    public class DrinksBUS
     {
         public List<Drinks> GetDrinks_Topping(string type)
         {
             try
             {
-                return new DrinkDAO().GetDrinks_Topping(type);
+                return new DrinksDAO().GetDrinks_Topping(type);
             }
             catch (SqlException ex)
             {
