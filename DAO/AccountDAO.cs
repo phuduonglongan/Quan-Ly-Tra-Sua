@@ -8,9 +8,9 @@ using DTO;
 
 namespace DAO
 {
-   public class AccountDAO: DataProvider
+    public class AccountDAO : DataProvider
     {
-        public List<Account> GetAccount()
+        public List<Account> GetAllAccount()
         {
             string sql = "SELECT * FROM Account";
             connect();
@@ -82,37 +82,7 @@ namespace DAO
                 disconnect();
             }
         }
-        public void UpdateInfo(string username, string pass, string displayName)
-        {
-            connect();
-            string sql = "UPDATE Account SET PassWord = '" + pass + "', DisplayName = N'" + displayName + "' WHERE UserName = '" + username + "'";
-            try
-            {
-                RunSQL(sql);
-            }
-            catch (SqlException ex)
-            {
-                throw ex;
-            }
-            finally
-            {
-                disconnect();
-            }
-        }
 
-        public void DeleteAccount(string username)
-        {
-            connect();
-            string sql = "DELETE Account WHERE UserName = '" + username + "'";
-            try
-            {
-                RunSQL(sql);
-            }
-            catch (SqlException ex)
-            {
-                throw ex;
-            }
-        }
         public void UpdateCountDay(string userName, int count, int total)
         {
             connect();
@@ -147,6 +117,36 @@ namespace DAO
                 disconnect();
             }
         }
+        public void UpdateInfo(string username, string pass, string displayName)
+        {
+            connect();
+            string sql = "UPDATE Account SET PassWord = '" + pass + "', DisplayName = N'" + displayName + "' WHERE UserName = '" + username + "'";
+            try
+            {
+                RunSQL(sql);
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                disconnect();
+            }
+        }
+
+        public void DeleteAccount(string username)
+        {
+            connect();
+            string sql = "DELETE Account WHERE UserName = '" + username + "'";
+            try
+            {
+                RunSQL(sql);
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
-

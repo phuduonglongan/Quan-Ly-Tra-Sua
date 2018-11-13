@@ -7,15 +7,15 @@ using System.Data.SqlClient;
 
 namespace DAO
 {
-   public class LoginDAO: DataProvider
+    public class LoginDAO : DataProvider
     {
         public bool login(string user, string pass)
         {
-            string sql ="SELECT COUNT(UserName) FROM Account WHERE UserName= '" + user + "' AND PassWord= '" + pass + "'";
+            string sql = "SELECT COUNT(UserName) FROM Account WHERE UserName = '" + user + "' AND PassWord = '" + pass + "'";
             int number;
             try
             {
-                number= myExecuteScalar(sql);
+                number = myExecuteScalar(sql);
             }
             catch (SqlException ex)
             {

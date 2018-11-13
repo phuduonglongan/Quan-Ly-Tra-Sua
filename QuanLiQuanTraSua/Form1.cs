@@ -7,8 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using DTO;
 using BUS;
+using DTO;
 using System.IO;
 
 namespace QuanLiQuanTraSua
@@ -25,7 +25,7 @@ namespace QuanLiQuanTraSua
         {
             InitializeComponent();
         }
-      
+
         private void logOutMenustrip_Click(object sender, EventArgs e)
         {
             Form1 fm = new Form1();
@@ -46,7 +46,6 @@ namespace QuanLiQuanTraSua
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
             this.Show();
             this.Visible = false;
             FormLogin lg = new FormLogin();
@@ -82,12 +81,12 @@ namespace QuanLiQuanTraSua
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            // lbShopName.Text = lbShopName.Text.Substring(1) + lbShopName.Text.Substring(0, 1);
             lbShopName.Text = lbShopName.Text.Substring(1) + lbShopName.Text.Substring(0, 1);
         }
+
         private void loadDataDrinkTopping(Panel pn, string type)
         {
-            List<Drinks> list = new DrinkBUS().GetDrinks_Topping(type);
+            List<Drinks> list = new DrinksBUS().GetDrinks_Topping(type);
             Button obt = new Button() { Width = 0, Location = new Point(0, 0) };
             foreach (var item in list)
             {
@@ -110,20 +109,33 @@ namespace QuanLiQuanTraSua
                 }
             }
         }
-             private void btn_Click(object sender, System.EventArgs e)
-              {
-                   Button bt = (Button)sender;
-                   var listViewItem = new ListViewItem(bt.Text);
-                   listViewItem.SubItems.Add(bt.Tag.ToString());
-                   listViewItem.SubItems.Add("1");
-                   listViewItem.SubItems.Add(bt.Tag.ToString());
-                   lvBill.Items.Add(listViewItem);
-                   bt.Enabled = false;
-                   TinhTien();
-               }
+
+        private void btn_Click(object sender, System.EventArgs e)
+        {
+            Button bt = (Button)sender;
+            var listViewItem = new ListViewItem(bt.Text);
+            listViewItem.SubItems.Add(bt.Tag.ToString());
+            listViewItem.SubItems.Add("1");
+            listViewItem.SubItems.Add(bt.Tag.ToString());
+            lvBill.Items.Add(listViewItem);
+            bt.Enabled = false;
+            TinhTien();
+        }
         ListViewItem.ListViewSubItem Count;
         ListViewItem.ListViewSubItem Price;
         ListViewItem.ListViewSubItem Sum;
+        private void lvBill_MouseDown(object sender, MouseEventArgs e)
+        {
+            HideTextEditor();
+        }
+        private void TxtEdit_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Return)
+            {
+                HideTextEditor();
+                TinhTien();
+            }
+        }
         private void HideTextEditor()
         {
             TxtEdit.Visible = false;
@@ -135,14 +147,20 @@ namespace QuanLiQuanTraSua
             Count = null;
             TxtEdit.Text = "";
         }
-        private void TinhTien()
+
+        private void lvBill_MouseUp(object sender, MouseEventArgs e)
         {
-            double total = 0;
-            foreach (ListViewItem item in lvBill.Items)
-            {
-                total += Convert.ToInt32(item.SubItems[3].Text);
-            }
-            txtTotal.Text = total.ToString();
+            ListViewItem ItemSelected = lvBill.GetItemAt(e.X, e.Y);
+            ListViewHitTestInfo i = lvBill.HitTest(e.X, e.Y);
+            Count = i.SubItem;
+            Price = ItemSelected.SubItems[1];
+            Sum = ItemSelected.SubItems[3];
+            TxtEdit.Location = new Point(ItemSelected.SubItems[2].Bounds.X, ItemSelected.SubItems[2].Bounds.Y);
+            TxtEdit.Visible = true;
+            TxtEdit.BringToFront();
+            TxtEdit.Text = ItemSelected.SubItems[2].Text;
+            TxtEdit.Select();
+            TxtEdit.SelectAll();
         }
 
         private void btPay_Click(object sender, EventArgs e)
@@ -166,6 +184,17 @@ namespace QuanLiQuanTraSua
             XuatFile();
             lvBill.Clear();
         }
+
+        private void TinhTien()
+        {
+            double total = 0;
+            foreach (ListViewItem item in lvBill.Items)
+            {
+                total += Convert.ToInt32(item.SubItems[3].Text);
+            }
+            txtTotal.Text = total.ToString();
+        }
+
         private void XuatFile()
         {
             String fileName = DateTime.Now.Day.ToString() + DateTime.Now.Month.ToString() + DateTime.Now.Year.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + DateTime.Now.Second.ToString();
@@ -175,12 +204,12 @@ namespace QuanLiQuanTraSua
             sWriter.WriteLine("HÓA ĐƠN TÍNH TIỀN");
             sWriter.WriteLine("------------------------------------------------------------------------------------");
             StringBuilder sb;
-            foreach (ListViewItem lvi in lvBill.Items)
+           foreach (ListViewItem lvi in lvBill.Items)
             {
                 sb = new StringBuilder();
-
-                sb.Append(string.Format("{0,-40} {1, -11} {2, -30} {3}", lvi.SubItems[0].Text, lvi.SubItems[1].Text, lvi.SubItems[2].Text, lvi.SubItems[3].Text));
-
+                
+                    sb.Append(string.Format("{0,-40} {1, -11} {2, -30} {3}", lvi.SubItems[0].Text, lvi.SubItems[1].Text, lvi.SubItems[2].Text, lvi.SubItems[3].Text));
+                
                 sWriter.WriteLine(sb.ToString());
             }
             sWriter.WriteLine("------------------------------------------------------------------------------------");
@@ -193,35 +222,5 @@ namespace QuanLiQuanTraSua
             rd.Close();
             MessageBox.Show(data, "HÓA ĐƠN TÍNH TIỀN");
         }
-
-        private void TxtEdit_KeyUp_1(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Return)
-            {
-                HideTextEditor();
-                TinhTien();
-            }
-        }
-
-        private void lvBill_MouseDown_1(object sender, MouseEventArgs e)
-        {
-            HideTextEditor();
-        }
-
-        private void lvBill_MouseUp(object sender, MouseEventArgs e)
-        {
-            ListViewItem ItemSelected = lvBill.GetItemAt(e.X, e.Y);
-            ListViewHitTestInfo i = lvBill.HitTest(e.X, e.Y);
-            Count = i.SubItem;
-            Price = ItemSelected.SubItems[1];
-            Sum = ItemSelected.SubItems[3];
-            TxtEdit.Location = new Point(ItemSelected.SubItems[2].Bounds.X, ItemSelected.SubItems[2].Bounds.Y);
-            TxtEdit.Visible = true;
-            TxtEdit.BringToFront();
-            TxtEdit.Text = ItemSelected.SubItems[2].Text;
-            TxtEdit.Select();
-            TxtEdit.SelectAll();
-        }
     }
 }
-

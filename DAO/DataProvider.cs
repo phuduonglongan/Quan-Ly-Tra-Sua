@@ -7,7 +7,7 @@ using System.Data.SqlClient;
 using System.Data;
 namespace DAO
 {
-   public class DataProvider
+    public class DataProvider
     {
         SqlConnection cn;
         public DataProvider()
@@ -109,6 +109,5 @@ namespace DAO
                 throw ex;
             }
         }//end of Add
-
     }
 }

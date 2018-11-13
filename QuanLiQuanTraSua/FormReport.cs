@@ -8,8 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
-using DTO;
 using BUS;
+using DTO;
 
 namespace QuanLiQuanTraSua
 {
@@ -63,11 +63,10 @@ namespace QuanLiQuanTraSua
             rd.Close();
             MessageBox.Show(data, "HÓA ĐƠN TÍNH TIỀN");
         }
-
         private void rbtDay_CheckedChanged(object sender, EventArgs e)
         {
             RadioButton rb = sender as RadioButton;
-            List<Account> list = new AccountBUS().GetAccount();
+            List<Account> list = new AccountBUS().GetAllAccount();
             int totalBill = 0, total = 0;
 
             if (rb.Name == "rbtDay")

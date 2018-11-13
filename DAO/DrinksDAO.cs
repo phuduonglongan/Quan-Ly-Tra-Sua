@@ -8,11 +8,11 @@ using DTO;
 
 namespace DAO
 {
-   public class DrinkDAO: DataProvider
+    public class DrinksDAO:DataProvider
     {
         public List<Drinks> GetDrinks_Topping(string type)
-        {
-            string sql = "SELECT * FROM DrinkToppingName WHERE Id LIKE '" + type + "%'";
+        { 
+            string sql = "SELECT * FROM DrinkToppingName WHERE Id LIKE '" + type +"%'";
             connect();
             try
             {
