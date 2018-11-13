@@ -24,3 +24,8 @@ C:\Users\ASUS\Desktop\baiminh\Quan-Ly-Tra-Sua\bin\Debug\DAO.pdb
 C:\Users\ASUS\Desktop\baiminh\Quan-Ly-Tra-Sua\DAO\obj\Debug\DAO.csprojResolveAssemblyReference.cache
 C:\Users\ASUS\Desktop\baiminh\Quan-Ly-Tra-Sua\DAO\obj\Debug\DAO.dll
 C:\Users\ASUS\Desktop\baiminh\Quan-Ly-Tra-Sua\DAO\obj\Debug\DAO.pdb
+C:\Users\ASUS\Desktop\New folder (3)\Quan-Ly-Tra-Sua\bin\Debug\DAO.dll
+C:\Users\ASUS\Desktop\New folder (3)\Quan-Ly-Tra-Sua\bin\Debug\DAO.pdb
+C:\Users\ASUS\Desktop\New folder (3)\Quan-Ly-Tra-Sua\DAO\obj\Debug\DAO.csprojResolveAssemblyReference.cache
+C:\Users\ASUS\Desktop\New folder (3)\Quan-Ly-Tra-Sua\DAO\obj\Debug\DAO.dll
+C:\Users\ASUS\Desktop\New folder (3)\Quan-Ly-Tra-Sua\DAO\obj\Debug\DAO.pdb
