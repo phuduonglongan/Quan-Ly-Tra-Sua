@@ -182,7 +182,7 @@ namespace QuanLiQuanTraSua
             new AccountBUS().UpdateCountDay(LocalData.localData.AccountUserName, Convert.ToInt32(txtTotal.Text));
             new AccountBUS().UpdateCountMonth(LocalData.localData.AccountUserName, Convert.ToInt32(txtTotal.Text));
             XuatFile();
-            lvBill.Clear();
+            lvBill.Items.Clear();
         }
 
         private void TinhTien()

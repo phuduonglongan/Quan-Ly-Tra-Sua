@@ -68,7 +68,7 @@ namespace DAO
         public void UpdateYesterday(string userName)
         {
             connect();
-            string sql = "Update Account SET Yesterday = " + DateTime.Today.AddDays(-1).ToString() + " WHERE UserName = '" + userName + "'";
+            string sql = "Update Account SET Yesterday = '" + DateTime.Today.AddDays(-1).ToString() + "' WHERE UserName = '" + userName + "'";
             try
             {
                 RunSQL(sql);

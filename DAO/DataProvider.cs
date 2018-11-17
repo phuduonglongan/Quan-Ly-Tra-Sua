@@ -12,7 +12,7 @@ namespace DAO
         SqlConnection cn;
         public DataProvider()
         {
-            string cnstr = "Server= . ; Database = QuanLiQuanTraSua1; Integrated Security = true;";
+            string cnstr = "Server= DESKTOP-2I93PTI\\SQLEXPRESS ; Database = QuanLiQuanTraSua1; Integrated Security = true;";
             cn = new SqlConnection(cnstr);
         }
         public void connect()
