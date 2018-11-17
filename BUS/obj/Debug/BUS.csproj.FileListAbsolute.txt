@@ -35,3 +35,8 @@ C:\Users\ASUS\Desktop\New folder (3)\Quan-Ly-Tra-Sua\bin\Debug\BUS.pdb
 C:\Users\ASUS\Desktop\New folder (3)\Quan-Ly-Tra-Sua\BUS\obj\Debug\BUS.csprojResolveAssemblyReference.cache
 C:\Users\ASUS\Desktop\New folder (3)\Quan-Ly-Tra-Sua\BUS\obj\Debug\BUS.dll
 C:\Users\ASUS\Desktop\New folder (3)\Quan-Ly-Tra-Sua\BUS\obj\Debug\BUS.pdb
+C:\Users\NLPT\Desktop\baitaplon\Quan-Ly-Tra-Sua\bin\Debug\BUS.dll
+C:\Users\NLPT\Desktop\baitaplon\Quan-Ly-Tra-Sua\bin\Debug\BUS.pdb
+C:\Users\NLPT\Desktop\baitaplon\Quan-Ly-Tra-Sua\BUS\obj\Debug\BUS.csprojResolveAssemblyReference.cache
+C:\Users\NLPT\Desktop\baitaplon\Quan-Ly-Tra-Sua\BUS\obj\Debug\BUS.dll
+C:\Users\NLPT\Desktop\baitaplon\Quan-Ly-Tra-Sua\BUS\obj\Debug\BUS.pdb

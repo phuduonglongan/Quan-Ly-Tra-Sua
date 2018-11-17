@@ -49,18 +49,19 @@
             this.panelFormReport.Controls.Add(this.label4);
             this.panelFormReport.Controls.Add(this.panelInfoFormReport);
             this.panelFormReport.Controls.Add(this.label1);
-            this.panelFormReport.Location = new System.Drawing.Point(13, 14);
-            this.panelFormReport.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panelFormReport.Location = new System.Drawing.Point(10, 11);
+            this.panelFormReport.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panelFormReport.Name = "panelFormReport";
-            this.panelFormReport.Size = new System.Drawing.Size(523, 580);
+            this.panelFormReport.Size = new System.Drawing.Size(392, 471);
             this.panelFormReport.TabIndex = 0;
             // 
             // label4
             // 
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(0, 78);
+            this.label4.Location = new System.Drawing.Point(0, 63);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(519, 43);
+            this.label4.Size = new System.Drawing.Size(389, 35);
             this.label4.TabIndex = 2;
             this.label4.Text = "--  00  --";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -75,19 +76,19 @@
             this.panelInfoFormReport.Controls.Add(this.txtTotalBill);
             this.panelInfoFormReport.Controls.Add(this.label3);
             this.panelInfoFormReport.Controls.Add(this.label2);
-            this.panelInfoFormReport.Location = new System.Drawing.Point(0, 123);
-            this.panelInfoFormReport.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.panelInfoFormReport.Location = new System.Drawing.Point(0, 100);
+            this.panelInfoFormReport.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panelInfoFormReport.Name = "panelInfoFormReport";
-            this.panelInfoFormReport.Size = new System.Drawing.Size(519, 454);
+            this.panelInfoFormReport.Size = new System.Drawing.Size(389, 369);
             this.panelInfoFormReport.TabIndex = 1;
             // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(297, 306);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.button1.Location = new System.Drawing.Point(223, 249);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(147, 57);
+            this.button1.Size = new System.Drawing.Size(110, 46);
             this.button1.TabIndex = 7;
             this.button1.Text = "In Thống Kê";
             this.button1.UseVisualStyleBackColor = true;
@@ -97,24 +98,24 @@
             // 
             this.rbtMonth.AutoSize = true;
             this.rbtMonth.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbtMonth.Location = new System.Drawing.Point(372, 207);
-            this.rbtMonth.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.rbtMonth.Location = new System.Drawing.Point(279, 168);
+            this.rbtMonth.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rbtMonth.Name = "rbtMonth";
-            this.rbtMonth.Size = new System.Drawing.Size(76, 24);
+            this.rbtMonth.Size = new System.Drawing.Size(67, 21);
             this.rbtMonth.TabIndex = 6;
             this.rbtMonth.TabStop = true;
             this.rbtMonth.Text = "Tháng";
             this.rbtMonth.UseVisualStyleBackColor = true;
-     
+            this.rbtMonth.CheckedChanged += new System.EventHandler(this.rbtDay_CheckedChanged);
             // 
             // rbtDay
             // 
             this.rbtDay.AutoSize = true;
             this.rbtDay.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbtDay.Location = new System.Drawing.Point(236, 206);
-            this.rbtDay.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.rbtDay.Location = new System.Drawing.Point(177, 167);
+            this.rbtDay.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rbtDay.Name = "rbtDay";
-            this.rbtDay.Size = new System.Drawing.Size(68, 24);
+            this.rbtDay.Size = new System.Drawing.Size(59, 21);
             this.rbtDay.TabIndex = 5;
             this.rbtDay.Text = "Ngày";
             this.rbtDay.UseVisualStyleBackColor = true;
@@ -124,37 +125,39 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(69, 206);
+            this.label5.Location = new System.Drawing.Point(52, 167);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(119, 20);
+            this.label5.Size = new System.Drawing.Size(104, 17);
             this.label5.TabIndex = 4;
             this.label5.Text = "Thống kê theo:";
             // 
             // txtTotalRevenu
             // 
-            this.txtTotalRevenu.Location = new System.Drawing.Point(236, 126);
-            this.txtTotalRevenu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtTotalRevenu.Location = new System.Drawing.Point(177, 102);
+            this.txtTotalRevenu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtTotalRevenu.Name = "txtTotalRevenu";
             this.txtTotalRevenu.ReadOnly = true;
-            this.txtTotalRevenu.Size = new System.Drawing.Size(208, 22);
+            this.txtTotalRevenu.Size = new System.Drawing.Size(157, 20);
             this.txtTotalRevenu.TabIndex = 3;
             // 
             // txtTotalBill
             // 
-            this.txtTotalBill.Location = new System.Drawing.Point(236, 57);
-            this.txtTotalBill.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtTotalBill.Location = new System.Drawing.Point(177, 46);
+            this.txtTotalBill.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtTotalBill.Name = "txtTotalBill";
             this.txtTotalBill.ReadOnly = true;
-            this.txtTotalBill.Size = new System.Drawing.Size(208, 22);
+            this.txtTotalBill.Size = new System.Drawing.Size(157, 20);
             this.txtTotalBill.TabIndex = 2;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(69, 126);
+            this.label3.Location = new System.Drawing.Point(52, 102);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(129, 20);
+            this.label3.Size = new System.Drawing.Size(113, 17);
             this.label3.TabIndex = 1;
             this.label3.Text = "Tổng doanh thu:";
             // 
@@ -162,30 +165,32 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(69, 57);
+            this.label2.Location = new System.Drawing.Point(52, 46);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(138, 20);
+            this.label2.Size = new System.Drawing.Size(120, 17);
             this.label2.TabIndex = 0;
             this.label2.Text = "Tổng số hóa đơn:";
             // 
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(4, 4);
+            this.label1.Location = new System.Drawing.Point(3, 3);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(515, 69);
+            this.label1.Size = new System.Drawing.Size(386, 56);
             this.label1.TabIndex = 0;
             this.label1.Text = "Bản Thống Kê";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // FormReport
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(547, 606);
+            this.ClientSize = new System.Drawing.Size(410, 492);
             this.Controls.Add(this.panelFormReport);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FormReport";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Bản Thống Kê";

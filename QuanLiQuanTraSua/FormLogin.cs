@@ -18,30 +18,25 @@ namespace QuanLiQuanTraSua
         {
             InitializeComponent();
         }
-        
+
         private void btLogin_Click(object sender, EventArgs e)
         {
             string user, pass;
             user = txtUserName.Text.Trim();
             pass = txtPassWord.Text.Trim();
             bool b = false;
-            if (user == "duong" && pass == "1")
+
+            try
             {
-                b = true;
+                LoginBUS lgb = new LoginBUS();
+                b = lgb.login(user, pass);
+                LocalData.localData.AccountUserName = user;
             }
-            else
+            catch (SqlException ex)
             {
-                try
-                {
-                    LoginBUS lgb = new LoginBUS();
-                    b = lgb.login(user, pass);
-                    LocalData.localData.AccountUserName = user;
-                }
-                catch (SqlException ex)
-                {
-                    MessageBox.Show("Lỗi" + ex.Message, "Đăng Nhập");
-                }
+                MessageBox.Show("Lỗi" + ex.Message, "Đăng Nhập");
             }
+
 
             if (b)
             {
@@ -76,6 +71,11 @@ namespace QuanLiQuanTraSua
             {
                 fg.ShowDialog();
             }
+        }
+
+        private void panelFromLogin_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
